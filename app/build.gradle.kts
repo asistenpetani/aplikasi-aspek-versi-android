@@ -220,7 +220,7 @@ dependencies {
   implementation(libs.googleid)
   implementation(libs.play.integrity)
   implementation(libs.hilt.android)
-  implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+  implementation("androidx.hilt:hilt-navigation-compose:1.4.0")
   implementation(libs.play.services.oss.licenses)
   ksp(libs.hilt.compiler)
   debugImplementation(libs.androidx.compose.ui.tooling)

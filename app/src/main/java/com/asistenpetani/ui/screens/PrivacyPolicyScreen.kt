@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun PrivacyPolicyScreen(
@@ -38,7 +39,7 @@ fun PrivacyPolicyScreen(
                             )
                         }
                         Text(
-                            text = "Kebijakan Privasi",
+                            text = "Kebijakan Privasi & Lisensi",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
@@ -56,12 +57,12 @@ fun PrivacyPolicyScreen(
                     ) {
                         // Header
                         Text(
-                            text = "Kebijakan Privasi & Ketentuan Penggunaan",
+                            text = "Kebijakan Privasi - ASPEK",
                             style = MaterialTheme.typography.headlineSmall,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "Terakhir diperbarui: 27 Juli 2024",
+                            text = "Terakhir Diperbarui: 12 Juni 2026",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.outline
                         )
@@ -70,67 +71,139 @@ fun PrivacyPolicyScreen(
 
                         // Intro
                         Text(
-                            text = "Selamat Datang di Aspek 9.0!",
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "Terima kasih telah menggunakan Asisten Petani (Aspek). Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda. Dengan menggunakan aplikasi ini, Anda menyetujui praktik yang dijelaskan di sini.",
+                            text = "Aplikasi ASPEK (Asisten Petani Kita) berkomitmen penuh untuk melindungi privasi penggunanya. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan melindungi data Anda saat Anda menggunakan aplikasi seluler kami.",
                             style = MaterialTheme.typography.bodyMedium
                         )
 
                         // 1. Informasi yang Kami Kumpulkan
                         PolicySectionTitle(title = "1. Informasi yang Kami Kumpulkan")
-                        PolicyBulletPoint(boldText = "Detail Lahan: ", text = "Nama petani, lokasi, luas lahan, dan jenis tanaman yang Anda masukkan. Data ini disimpan secara lokal di perangkat Anda (local storage) untuk personalisasi pengalaman dan tidak dikirim ke server kami kecuali untuk tujuan analisis AI secara anonim.")
-                        PolicyBulletPoint(boldText = "Data Interaksi: ", text = "Kami mengumpulkan data interaksi Anda dengan Asisten AI, seperti pertanyaan yang Anda ajukan dan gambar yang Anda unggah, untuk tujuan meningkatkan kualitas layanan AI kami.")
-                        PolicyBulletPoint(boldText = "Data Anonim: ", text = "Kami menggunakan Firebase dan Google Analytics untuk mengumpulkan data penggunaan anonim (misalnya, fitur yang paling sering digunakan, waktu sesi) untuk memahami bagaimana aplikasi digunakan dan untuk memperbaikinya.")
-
-                        // 2. Bagaimana Kami Menggunakan Informasi Anda
-                        PolicySectionTitle(title = "2. Bagaimana Kami Menggunakan Informasi Anda")
-                        PolicyBulletPoint(text = "• Untuk mempersonalisasi pengalaman Anda di dalam aplikasi.")
-                        PolicyBulletPoint(text = "• Untuk melatih dan meningkatkan akurasi serta relevansi dari Asisten AI kami.")
-                        PolicyBulletPoint(text = "• Untuk menganalisis tren penggunaan dan mengoptimalkan kinerja aplikasi.")
-
-                        // 3. Keamanan Data
-                        PolicySectionTitle(title = "3. Keamanan Data")
                         Text(
-                            text = "Kami berkomitmen untuk melindungi data Anda. Kami menggunakan layanan dari Google (Firebase), yang memiliki standar keamanan kelas dunia. Data sensitif seperti foto dan percakapan AI diproses melalui koneksi yang aman.",
+                            text = "ASPEK dirancang untuk menyimpan sebagian besar data Anda secara lokal di perangkat Anda demi kenyamanan, kecepatan, dan privasi yang optimal. Namun, kami juga mengumpulkan data berikut:",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        PolicyBulletPoint(boldText = "Profil Petani: ", text = "Nama, lokasi lahan, komoditas tanaman, luas area, dan foto daun yang Anda buat (disimpan secara lokal).")
+                        PolicyBulletPoint(boldText = "Konten Kamera: ", text = "Foto daun tanaman yang Anda ambil secara lokal untuk analisis warna hara melalui asisten Gemini AI.")
+                        PolicyBulletPoint(boldText = "Data Lokasi (GPS): ", text = "Digunakan untuk memberikan informasi cuaca ekstrem hiper-lokal dan memetakan jarak kios pupuk terdekat.")
+                        PolicyBulletPoint(boldText = "Riwayat Obrolan: ", text = "Riwayat percakapan Anda dengan Gemini AI disimpan di basis data lokal SQLite (Room) di perangkat Anda.")
+
+                        // 2. Penggunaan Informasi
+                        PolicySectionTitle(title = "2. Penggunaan Informasi")
+                        Text(
+                            text = "Kami menggunakan data yang dikumpulkan untuk tujuan berikut:",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        PolicyBulletPoint(text = "• Memberikan rekomendasi pertanian, diagnosis hara, takaran dosis pupuk, dan mitigasi cuaca.")
+                        PolicyBulletPoint(text = "• Memproses percakapan interaktif menggunakan Google Gemini AI secara terenkripsi dan anonim.")
+                        PolicyBulletPoint(text = "• Memungkinkan pengiriman pemberitahuan dan alarm pengingat kegiatan pertanian (tebus pupuk, penyemprotan, pemupukan).")
+
+                        // 3. Keamanan Data & Penyimpanan Lokal
+                        PolicySectionTitle(title = "3. Keamanan Data & Penyimpanan Lokal")
+                        Text(
+                            text = "Aplikasi tidak mengunggah data pribadi Anda ke server pihak ketiga mana pun untuk tujuan komersial atau pengiklanan. Jembatan komunikasi ke Google AI Studio/Gemini menggunakan komunikasi HTTPS yang telah terenkripsi guna memastikan integritas data.",
                             style = MaterialTheme.typography.bodyMedium
                         )
 
-                        // 4. Lisensi Pengetahuan
-                        PolicySectionTitle(title = "4. Lisensi Pengetahuan")
+                        // 4. Perizinan Perangkat (App Permissions)
+                        PolicySectionTitle(title = "4. Perizinan Perangkat (App Permissions)")
                         Text(
-                            text = "Seluruh basis pengetahuan (knowledge base) mengenai praktik pertanian, perkebunan, perikanan, data produk, dan rekomendasi yang dihasilkan oleh Aspek dilindungi oleh ketentuan hak kekayaan intelektual. Ini berarti Anda terbatas dalam:",
+                            text = "Aplikasi memerlukan beberapa izin fungsional berikut:",
                             style = MaterialTheme.typography.bodyMedium
                         )
-                        PolicyBulletPoint(text = "• Berbagi — menyalin dan menyebarluaskan kembali materi dalam bentuk atau format apa pun.")
-                        PolicyBulletPoint(text = "• Adaptasi — menggubah, mengubah, dan membuat turunan dari materi.")
+                        PolicyBulletPoint(boldText = "Internet & Network State: ", text = "Untuk memanggil API Gemini dan sinkronisasi cuaca.")
+                        PolicyBulletPoint(boldText = "Kamera (Camera): ", text = "Untuk memotret daun tanaman yang akan didiagnosa.")
+                        PolicyBulletPoint(boldText = "Lokasi (GPS Fine/Coarse): ", text = "Untuk pencari kios terdekat dan cuaca lokal.")
+                        PolicyBulletPoint(boldText = "Notification: ", text = "Untuk alarm atau pengingat jadwal tani.")
+
+                        // 5. Perubahan Kebijakan Privasi
+                        PolicySectionTitle(title = "5. Perubahan Kebijakan Privasi")
                         Text(
-                            text = "Dengan syarat berikut:",
+                            text = "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu secara berkala. Perubahan akan segera berlaku setelah dipublikasikan pada halaman ini.",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+
+                        // 6. Kontak Kami
+                        PolicySectionTitle(title = "6. Kontak Kami")
+                        Text(
+                            text = "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, silakan hubungi kami di: indra.oktawan@gmail.com",
                             style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = FontWeight.Medium
+                        )
+                        Text(
+                            text = "© 2026 PT.BERTANI TEKNOLOGI INTELEGENSI. Semua Hak Dilindungi.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.outline
+                        )
+
+                        HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+
+                        // SOFTWARE LICENSE AGREEMENT
+                        Text(
+                            text = "SOFTWARE LICENSE AGREEMENT: \"ASISTEN PETANI\" (ASPEK)",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                        Text(
+                            text = "Copyright (c) 2026 Indra Oktawan. All Rights Reserved.",
+                            style = MaterialTheme.typography.bodySmall,
                             fontWeight = FontWeight.SemiBold
                         )
-                        PolicyBulletPoint(text = "• Atribusi — Anda harus memberikan kredit yang sesuai, menyediakan tautan ke lisensi, dan mengindikasikan jika ada perubahan yang dilakukan.")
-                        PolicyBulletPoint(text = "• NonKomersial — Anda tidak dapat menggunakan materi untuk tujuan komersial.")
+
+                        PolicySectionTitle(title = "1. OWNERSHIP")
                         Text(
-                            text = "Tujuan kami adalah untuk menyebarkan pengetahuan seluas-luasnya untuk kemajuan petani Indonesia.",
+                            text = "This software, including but not limited to its source code, original designs, and AI logic, is the exclusive legal property of Indra Oktawan.",
                             style = MaterialTheme.typography.bodyMedium
                         )
 
-                        // 5. Tanggung Jawab Pengguna
-                        PolicySectionTitle(title = "5. Tanggung Jawab Pengguna")
+                        PolicySectionTitle(title = "2. DISTRIBUTION RESTRICTIONS")
                         Text(
-                            text = "Penting untuk dipahami bahwa rekomendasi yang diberikan oleh Asisten AI (Aspek) bersifat sebagai alat bantu petunjuk. Informasi ini tidak menggantikan penilaian ahli, pengalaman pribadi Anda di lapangan, dan intuisi Anda sebagai petani. Keputusan akhir terkait segala tindakan di lahan sepenuhnya tetap berada pada tanggung jawab Anda sebagai pengguna.",
+                            text = "The right to distribute, publish, or sell this software in any form (including APK, source code, or API services) is strictly reserved for the authorized account holder, Indra Oktawan.",
                             style = MaterialTheme.typography.bodyMedium
                         )
 
-                        // 6. Perubahan Kebijakan
-                        PolicySectionTitle(title = "6. Perubahan Kebijakan")
+                        PolicySectionTitle(title = "3. PERSONAL USE ONLY")
                         Text(
-                            text = "Kami dapat memperbarui kebijakan ini dari waktu ke waktu. Kami akan memberitahu Anda tentang perubahan signifikan dengan memposting kebijakan baru di halaman ini.",
+                            text = "Users are granted permission to use this application solely for the purpose of assisting with agricultural activities. Users are strictly prohibited from duplicating, modifying, or redistributing the software without express written consent from the copyright owner.",
                             style = MaterialTheme.typography.bodyMedium
                         )
+
+                        PolicySectionTitle(title = "4. PROHIBITION OF REVERSE ENGINEERING")
+                        Text(
+                            text = "Reverse engineering, decompilation, or any attempt to extract the source code from the compiled application is strictly prohibited and constitutes a violation of this agreement.",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+
+                        PolicySectionTitle(title = "5. PROPRIETARY AI TECHNOLOGY")
+                        Text(
+                            text = "The integration of Google Gemini technology within this application is based on a proprietary configuration developed by the owner. Any unauthorized use, replication, or extraction of this integration method is strictly forbidden.",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+
+                        Spacer(modifier = Modifier.height(6.dp))
+
+                        Card(
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.3f)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(12.dp)) {
+                                Text(
+                                    text = "⚠️ COPYRIGHT & LICENSING NOTICE",
+                                    style = MaterialTheme.typography.labelLarge,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.error
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = "The Asisten Petani Kita (ASPEK) project is PROPRIETARY software.\n" +
+                                            "• NO REDISTRIBUTION: This code is not licensed under Open Source terms. Sole distribution rights are held exclusively by Indra Oktawan.\n" +
+                                            "• COMMERCIAL USE: It is strictly forbidden to use, copy, or resell any part of this technology for personal or group financial gain without written authorization.\n" +
+                                            "• MONITORING & ENFORCEMENT: Any form of cloning or development of similar applications proven to use the codebase or underlying logic of this project will be reported as a copyright infringement (DMCA).\n" +
+                                            "ANY VIOLATION OF THESE TERMS WILL BE PROSECUTED TO THE FULLEST EXTENT OF APPLICABLE COPYRIGHT LAWS.",
+                                    fontSize = 12.sp,
+                                    lineHeight = 16.sp
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -140,7 +213,7 @@ fun PrivacyPolicyScreen(
 
 @Composable
 fun PolicySectionTitle(title: String) {
-    Spacer(modifier = Modifier.height(8.dp))
+    Spacer(modifier = Modifier.height(6.dp))
     Text(
         text = title,
         style = MaterialTheme.typography.titleSmall,

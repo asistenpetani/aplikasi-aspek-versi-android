@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.asistenpetani.data.remote.ChatBackendRequest
 import com.asistenpetani.data.remote.RetrofitClient
+import com.asistenpetani.domain.usecase.ai.EnrichAiKnowledgeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,7 +20,9 @@ sealed class AiConsultState {
 }
 
 @HiltViewModel
-class AiConsultViewModel @Inject constructor() : ViewModel() {
+class AiConsultViewModel @Inject constructor(
+    private val enrichAiKnowledgeUseCase: EnrichAiKnowledgeUseCase
+) : ViewModel() {
 
     private val _aiState = MutableStateFlow<AiConsultState>(AiConsultState.Idle)
     val aiState: StateFlow<AiConsultState> = _aiState.asStateFlow()
@@ -30,8 +33,16 @@ class AiConsultViewModel @Inject constructor() : ViewModel() {
         viewModelScope.launch {
             _aiState.value = AiConsultState.Loading
             try {
-                // Here we pass a dummy auth header, you might want to replace it with the real token if needed.
-                val request = ChatBackendRequest(message = message, history = history)
+                // Ekstraksi seluruh pengetahuan dari Use Case (Profil, Lahan, Pasar, SOP)
+                val enrichedData = enrichAiKnowledgeUseCase()
+
+                val richMessage = if (history.isEmpty()) {
+                    "$message\n\n${enrichedData.rawFormattedContext}"
+                } else {
+                    message
+                }
+
+                val request = ChatBackendRequest(message = richMessage, history = history)
                 val response = RetrofitClient.service.chatWithBackend("Bearer DUMMY_TOKEN", request)
                 
                 if (response.reply != null) {

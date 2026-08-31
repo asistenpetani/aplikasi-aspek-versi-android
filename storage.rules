@@ -21,6 +21,12 @@ service firebase.storage {
       allow write: if isAuthenticated() && request.auth.uid == userId;
     }
 
+    // RAG Knowledge Base Storage Protection (ReadOnly for authenticated users, Write only via Backend)
+    match /rag_knowledge/{allPaths=**} {
+      allow read: if isAuthenticated();
+      allow write: if false;
+    }
+
     match /{allPaths=**} {
       allow read, write: if false;
     }

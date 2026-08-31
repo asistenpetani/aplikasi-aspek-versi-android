@@ -1,7 +1,7 @@
 # Mengunci penyedia layanan Google Cloud
 provider "google" {
   project = "asistenpetani-ai-app"
-  region  = "asia-southeast2" # Regional terdekat (Jakarta) untuk efisiensi data
+  region  = "asia-southeast2" # Regional terdekat (Jakarta) untuk efisiensi data & zero-cost egress
 }
 
 # Mengambil data akun billing yang aktif secara otomatis
@@ -32,5 +32,35 @@ resource "google_billing_budget" "budget_aspek" {
   }
   threshold_rules {
     threshold_percent = 1.0 # Email dikirim saat tagihan mencapai 100% ($5.0)
+  }
+}
+
+# ==============================================================================
+# Cloud Storage Bucket: asistenpetani-rag-knowledge (Region: asia-southeast2 Jakarta)
+# ==============================================================================
+resource "google_storage_bucket" "rag_knowledge_bucket" {
+  name                        = "asistenpetani-rag-knowledge"
+  location                    = "asia-southeast2"
+  storage_class               = "STANDARD"
+  uniform_bucket_level_access = true
+
+  versioning {
+    enabled = true
+  }
+
+  lifecycle_rule {
+    condition {
+      num_newer_versions = 3
+    }
+    action {
+      type = "Delete"
+    }
+  }
+
+  cors {
+    origin          = ["https://ais-dev-orbmbooub6hjfofqfik3f7-812982832201.asia-southeast1.run.app", "https://ais-pre-orbmbooub6hjfofqfik3f7-812982832201.asia-southeast1.run.app"]
+    method          = ["GET", "HEAD"]
+    response_header = ["*"]
+    max_age_seconds = 3600
   }
 }

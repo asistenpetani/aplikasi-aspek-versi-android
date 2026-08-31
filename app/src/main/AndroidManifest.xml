@@ -85,6 +85,11 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
 
+        <!-- Mencegah kegagalan registrasi FCM otomatis (TOO_MANY_REGISTRATIONS) di lingkungan virtual/emulator -->
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+
         <activity
             android:name="com.asistenpetani.MainActivity"
             android:exported="true"

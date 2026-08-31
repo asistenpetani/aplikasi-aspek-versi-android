@@ -14,7 +14,7 @@
     "dev": "concurrently \"yarn start:backend\" \"yarn start:frontend\""
   },
   "dependencies": {
-    "@genkit-ai/firebase": "^1.40.1",
+    "@genkit-ai/firebase": "^1.41.0",
     "@google-cloud/storage": "^7.21.0",
     "adm-zip": "^0.5.18",
     "concurrently": "^8.2.2"

@@ -118,17 +118,17 @@
   dependencies:
     tslib "^2.1.0"
 
-"@genkit-ai/firebase@^1.40.1":
-  version "1.40.1"
-  resolved "https://registry.npmjs.org/@genkit-ai/firebase/-/firebase-1.40.1.tgz"
-  integrity sha512-VCK6hz9J73U4sfRkKksx8ziGad21Z4CBw6uhmsI29QByc9ulOAcJTqnaDwAbouUdLA++REri1gNeofvQoctpsw==
+"@genkit-ai/firebase@^1.41.0":
+  version "1.41.0"
+  resolved "https://registry.yarnpkg.com/@genkit-ai/firebase/-/firebase-1.41.0.tgz#c3f8afd103044673d85145feea5cf716eaf01b2d"
+  integrity sha512-HoixxDf4eX3dHEgVUp1Ziqm8eRQVRobLhNBt9nYlnQ6qbyeLBXMtJpkLVfRbfK0Y5kP+5vYCSmkiYKwMQ+G04w==
   dependencies:
-    "@genkit-ai/google-cloud" "^1.40.1"
+    "@genkit-ai/google-cloud" "^1.41.0"
 
-"@genkit-ai/google-cloud@^1.40.1":
-  version "1.40.1"
-  resolved "https://registry.npmjs.org/@genkit-ai/google-cloud/-/google-cloud-1.40.1.tgz"
-  integrity sha512-pL0gClnB7k+OCjWbQ+4Zh1BzGUpirNdc6QqazfJhMc5/KbXt5XxiyKVJC+7UTW8VWRmPa3ZN8p/HeA2+zftxzA==
+"@genkit-ai/google-cloud@^1.41.0":
+  version "1.41.0"
+  resolved "https://registry.yarnpkg.com/@genkit-ai/google-cloud/-/google-cloud-1.41.0.tgz#22a7502ab781df78bdf0050b694e46c144c508ba"
+  integrity sha512-S1rzNi847rRfmZnTmVI3YIUkyuzcL2w9IBI3Ld+34myPcvwpF8yif+PkKXY6uzC05b8J3ReDvME3/VIKHXkUIw==
   dependencies:
     "@google-cloud/firestore" "^7.11.0"
     "@google-cloud/logging-winston" "^6.0.0"
@@ -2061,17 +2061,9 @@ core-util-is@~1.0.0:
   resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
-cors@^2.8.5:
+cors@^2.8.5, cors@^2.8.6:
   version "2.8.6"
   resolved "https://registry.npmjs.org/cors/-/cors-2.8.6.tgz"
-  integrity sha512-tJtZBBHA6vjIAaF6EnIaq6laBBP9aq/Y3ouVJjEfoHbRBcHBAHYcMh/w8LDrk2PvIMMq8gmopa5D4V8RmbrxGw==
-  dependencies:
-    object-assign "^4"
-    vary "^1"
-
-cors@^2.8.6:
-  version "2.8.6"
-  resolved "https://registry.yarnpkg.com/cors/-/cors-2.8.6.tgz#ff5dd69bd95e547503820d29aba4f8faf8dfec96"
   integrity sha512-tJtZBBHA6vjIAaF6EnIaq6laBBP9aq/Y3ouVJjEfoHbRBcHBAHYcMh/w8LDrk2PvIMMq8gmopa5D4V8RmbrxGw==
   dependencies:
     object-assign "^4"

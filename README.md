@@ -304,7 +304,7 @@ gh api \
    Perutean proyek diatur ke rute publik standar lokal hemat biaya.
 4. **Kompresi Data Klien:**  
    Setiap gambar dikompresi ke WebP (< 150 KB) dan kueri Firestore dibatasi dengan `limit(10)`.
-5. **Budget Alert Rp 100.000:**  
+5. **Budget Alert Rp 1.000.000:**  
    Peringatan dini terhubung langsung ke email `indra.oktawan@gmail.com`.
 
 ---

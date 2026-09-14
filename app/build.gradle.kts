@@ -165,7 +165,7 @@ secrets {
 // This makes it easy to add them back in the future if needed.
 dependencies {
   implementation(libs.play.services.oss.licenses)
-  implementation("androidx.security:security-crypto:1.1.0-alpha06")
+  implementation("androidx.security:security-crypto:1.1.0")
   implementation(libs.kotlinx.serialization.json)
   implementation(libs.retrofit.kotlinx.serialization.converter)
   implementation(libs.androidx.work)

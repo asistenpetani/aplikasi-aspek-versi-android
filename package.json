@@ -16,7 +16,7 @@
   "dependencies": {
     "@genkit-ai/firebase": "^1.40.1",
     "@google-cloud/storage": "^7.21.0",
-    "adm-zip": "^0.5.18",
+    "adm-zip": "^0.6.1",
     "concurrently": "^8.2.2"
   },
   "devDependencies": {

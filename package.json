@@ -20,6 +20,6 @@
     "concurrently": "^8.2.2"
   },
   "devDependencies": {
-    "firebase-tools": "^13.12.0"
+    "firebase-tools": "^15.30.2"
   }
 }
